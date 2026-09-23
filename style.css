@@ -1,0 +1,422 @@
+```css * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #030303;
+
+    color: white;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(circle at 20% 20%,
+            rgba(255, 0, 0, 0.18),
+            transparent 30%),
+
+        radial-gradient(circle at 80% 80%,
+            rgba(180, 0, 0, 0.15),
+            transparent 30%),
+
+        #030303;
+}
+
+
+/* Light Lines */
+
+.background::before,
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200%;
+    height: 2px;
+
+    background: linear-gradient(90deg,
+            transparent,
+            #ff0000,
+            transparent);
+
+    opacity: 0.25;
+
+    transform: rotate(-25deg);
+
+    animation: lightMove 8s linear infinite;
+}
+
+
+.background::before {
+    top: 30%;
+}
+
+.background::after {
+    top: 65%;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes lightMove {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.background span {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: #ff0000;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px #ff0000,
+        0 0 15px rgba(255, 0, 0, 0.6);
+
+    animation: particleMove linear infinite;
+}
+
+
+/* Different particles */
+
+.background span:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.background span:nth-child(2) {
+    left: 25%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.background span:nth-child(3) {
+    left: 40%;
+    animation-duration: 7s;
+    animation-delay: 3s;
+}
+
+.background span:nth-child(4) {
+    left: 55%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.background span:nth-child(5) {
+    left: 70%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.background span:nth-child(6) {
+    left: 82%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.background span:nth-child(7) {
+    left: 90%;
+    animation-duration: 8s;
+    animation-delay: 5s;
+}
+
+.background span:nth-child(8) {
+    left: 50%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+
+@keyframes particleMove {
+
+    0% {
+        bottom: -10px;
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 110%;
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.container {
+
+    width: 90%;
+
+    max-width: 420px;
+
+    padding: 45px 35px;
+
+    background: rgba(10, 10, 10, 0.92);
+
+    border: 1px solid rgba(255, 0, 0, 0.6);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow:
+
+        0 0 20px rgba(255, 0, 0, 0.25),
+
+        0 0 60px rgba(255, 0, 0, 0.08);
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================
+   RED TOP LINE
+========================= */
+
+.red-line {
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+
+    height: 2px;
+
+    background: #ff0000;
+
+    box-shadow:
+        0 0 10px #ff0000,
+        0 0 25px #ff0000;
+
+    animation: lineGlow 2s ease-in-out infinite;
+}
+
+
+@keyframes lineGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 12px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+p {
+
+    color: #999;
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 18px;
+
+    background: #050505;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+input::placeholder {
+    color: #666;
+}
+
+
+input:focus {
+
+    border-color: #ff0000;
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.4),
+
+        inset 0 0 10px rgba(255, 0, 0, 0.05);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(135deg,
+            #ff0000,
+            #8b0000);
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.35);
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 0, 0.6),
+
+        0 0 40px rgba(255, 0, 0, 0.25);
+}
+
+
+button:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   SMALL TEXT
+========================= */
+
+small {
+
+    display: block;
+
+    margin-top: 18px;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+```
