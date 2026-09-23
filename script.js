@@ -3,36 +3,23 @@ function sendToWhatsApp() {
 
     const email = document.getElementById("email").value.trim();
 
+    // التأكد من وجود إيميل
     if (email === "") {
-
         alert("Please enter your email.");
-
         return;
     }
 
-
-    if (!email.includes("@") || !email.includes(".")) {
-
-        alert("Please enter a valid email.");
-
-        return;
-    }
-
-
-    // ضع رقم واتساب هنا
-    // مثال:
+    // رقم واتساب الذي ستصل إليه الرسالة
+    // مثال مصري:
     // 01012345678
-    // يصبح:
+    // يكتب:
     // 201012345678
 
-    const phoneNumber = "201012345678";
+    const phoneNumber = "201010261989";
 
+    const message = `New email submitted:
 
-    const message =
-        "New email submitted:\n\n" +
-        "Email: " +
-        email;
-
+Email: ${email}`;
 
     const whatsappURL =
         "https://wa.me/" +
@@ -40,7 +27,7 @@ function sendToWhatsApp() {
         "?text=" +
         encodeURIComponent(message);
 
-
-    window.location.href = whatsappURL;
+    // فتح واتساب
+    window.open(whatsappURL, "_blank");
 }
 ```
